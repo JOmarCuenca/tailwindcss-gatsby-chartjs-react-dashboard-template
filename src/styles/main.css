@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+    @apply text-purple-800 hover:text-purple-900 hover:underline;
+}
