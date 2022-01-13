@@ -5,50 +5,23 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from "react";
+import PanelSideBar from "./sidebar";
 
-import Header from "./header"
 import "../styles/main.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <PanelSideBar/>
       <div
-        className="max-w-[960px] px-4 m-auto"
+        className="h-screen bg-gray-600 ml-16 p-6"
       >
         <main>{children}</main>
-        <footer
-          className="mt-1"
-        >
-          <p>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
-          </p>
-          <p>© {new Date().getFullYear()}, Template build by
-            {` `}
-            <a href="https://www.omar-cuenca.com">JOmarCuenca</a></p>
-        </footer>
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
