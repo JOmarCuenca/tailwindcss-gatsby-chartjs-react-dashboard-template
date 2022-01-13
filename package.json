@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Jesus Omar Cuenca Espino <jesomar.cuenca@gmail.com>",
   "dependencies": {
+    "@types/faker": "^5.5.9",
     "chart.js": "^3.7.0",
     "faker": "5.5.3",
     "gatsby": "^4.4.0",
