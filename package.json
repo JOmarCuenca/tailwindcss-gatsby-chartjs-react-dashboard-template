@@ -1,10 +1,12 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "tailwindcss-gatsby-chartjs-react-dashboard-template",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Simple Dashboard Template with Gatsby, TailwindCSS, ChartJS and React.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jesus Omar Cuenca Espino <jesomar.cuenca@gmail.com>",
   "dependencies": {
+    "chart.js": "^3.7.0",
+    "faker": "5.5.3",
     "gatsby": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
     "gatsby-plugin-image": "^2.4.0",
@@ -17,6 +19,7 @@
     "gatsby-transformer-sharp": "^4.4.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1"
@@ -39,12 +42,5 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
