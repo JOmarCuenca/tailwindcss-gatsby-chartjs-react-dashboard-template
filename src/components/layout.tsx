@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     <>
       <PanelSideBar/>
       <div
-        className="h-screen bg-gray-600 ml-16 p-6"
+        className="min-h-screen bg-gray-600 ml-16 p-6"
       >
         <main>{children}</main>
       </div>
