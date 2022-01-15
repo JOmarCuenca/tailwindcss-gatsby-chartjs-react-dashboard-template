@@ -4,6 +4,10 @@
 
 @layer components {
 
+  .layout {
+    @apply min-h-screen bg-gray-600 ml-16 p-6;
+  }
+
     .sidebar-icon {
         @apply relative flex items-center justify-center 
         h-12 w-12 mt-2 mb-2 mx-auto
@@ -37,9 +41,14 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-  background-color: transparent;
+  @apply bg-gray-600;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-500 dark:bg-green-400;
+  @apply bg-gray-500 dark:bg-green-500 rounded-3xl;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
