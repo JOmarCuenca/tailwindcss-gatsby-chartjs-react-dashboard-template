@@ -1,47 +1,105 @@
 import faker from "faker";
 import React, { FC, useState } from "react";
-import BarChart from "../components/charts/bar";
+import { BarChart, LineChart, PieChart } from "../components/charts";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+const programming_languages = [
+  'Python',
+  'Java',
+  'Javascript/Typescript',
+  'Rust',
+  'Dart',
+  'Clojure'
+];
 
-const GraphsScreen : FC = () => {
+const GraphsScreen: FC = () => {
 
-    const BASE_DATA = {
-        labels,
-        datasets: [
-          {
-            label: 'Example',
-            backgroundColor: 'rgb(53, 162, 235)',
-            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-          },
+  const BASE_DATA = {
+    labels,
+    datasets: [
+      {
+        label: 'Example',
+        backgroundColor: 'rgb(253, 162, 235)',
+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      },
+    ],
+  };
+
+  const BASE_PIE_DATA = {
+    labels: programming_languages,
+    datasets: [
+      {
+        label: '# of Votes',
+        data: programming_languages.map(() => faker.datatype.number(15)),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
         ],
-      };
-    
-      const [data, setData] = useState(BASE_DATA);
-    
-      function randomize(e: any) {
-        e.preventDefault();
-        setData({
-          ...data,
-          datasets: [{
-            label: 'Example',
-            backgroundColor: 'rgb(53, 162, 235)',
-            data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-          }]
-        });
-      }
-    
+        // borderColor: [
+        //   'rgba(255, 99, 132, 1)',
+        //   'rgba(54, 162, 235, 1)',
+        //   'rgba(255, 206, 86, 1)',
+        //   'rgba(75, 192, 192, 1)',
+        //   'rgba(153, 102, 255, 1)',
+        //   'rgba(255, 159, 64, 1)',
+        // ],
+        borderWidth: 1,
+      },
+    ],
+  };
 
-    return <Layout>
-        <Seo title="Graphs" />
-        <button onClick={randomize} >Randomize</button>
-        {/* <Chart options={options} type="bar" data={data} /> */}
-        <div className="bg-gray-800 p-5 rounded-2xl min-h-[50vh]">
-          <BarChart title="ExampleChart" data={data} />
-        </div>
-    </Layout>;
+  const [data, setData] = useState(BASE_DATA);
+  const [pie_data, setPie_Data] = useState(BASE_PIE_DATA);
+
+  function randomColor(){return faker.commerce.color();};
+
+  function randomize(e: any) {
+    e.preventDefault();
+    setData({
+      ...data,
+      datasets: [{
+        label: 'Example',
+        backgroundColor: randomColor(),
+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      }]
+    });
+    setPie_Data({
+      ...pie_data,
+      datasets: [{
+        label: '# of Votes',
+        data: programming_languages.map(() => faker.datatype.number(15)),
+        backgroundColor: programming_languages.map(randomColor),
+        borderWidth: 1,
+      }]
+    });
+  }
+
+
+  return <Layout>
+    <Seo title="Graphs" />
+    <button className="fixed bottom-3 right-3 " onClick={randomize} >Randomize</button>
+    <div className="my-3 bg-gray-800 p-5 rounded-2xl min-h-[50vh]">
+      <BarChart title="ExampleChart" data={data} />
+    </div>
+    <div className="my-3 bg-gray-800 p-5 rounded-2xl min-h-[50vh]">
+      <LineChart title="ExampleChart" data={data} />
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="my-3 bg-gray-800 p-5 rounded-2xl min-h-[50vh]">
+        <PieChart title={"Example Pie Chart"} data={pie_data} />
+      </div>
+      <div className="my-3 bg-gray-800 p-5 rounded-2xl min-h-[50vh]">
+        <PieChart title={"Example Pie Chart"} data={pie_data} />
+      </div>
+    </div>
+
+  </Layout>;
 
 }
 

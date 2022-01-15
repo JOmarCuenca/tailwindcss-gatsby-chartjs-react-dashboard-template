@@ -4,7 +4,7 @@ import faker from 'faker';
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import BarChart from "../components/charts/bar";
+import {BarChart} from "../components/charts";
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
 
