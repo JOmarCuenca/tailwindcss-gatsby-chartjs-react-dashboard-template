@@ -1,6 +1,6 @@
 import faker from "faker";
 import React, { FC, useState } from "react";
-import { BarChart, LineChart, PieChart } from "../components/charts";
+import { BarChart, DoughnutChart, LineChart, PieChart } from "../components/charts";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
@@ -20,9 +20,18 @@ const GraphsScreen: FC = () => {
     labels,
     datasets: [
       {
-        label: 'Example',
-        backgroundColor: 'rgb(253, 162, 235)',
+        label : "Amount",
+        backgroundColor: 'rgb(253, 162, 235, 0.2)',
         data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        stack : "0",
+        borderWidth : 5,
+        borderColor : 'rgb(253, 162, 235)',
+      },
+      {
+        label : "Rate",
+        backgroundColor: 'rgb(15, 182, 25)',
+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        stack : "0"
       },
     ],
   };
@@ -31,7 +40,6 @@ const GraphsScreen: FC = () => {
     labels: programming_languages,
     datasets: [
       {
-        label: '# of Votes',
         data: programming_languages.map(() => faker.datatype.number(15)),
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -57,22 +65,22 @@ const GraphsScreen: FC = () => {
   const [data, setData] = useState(BASE_DATA);
   const [pie_data, setPie_Data] = useState(BASE_PIE_DATA);
 
-  function randomColor(){return faker.commerce.color();};
+  function randomColor() { return faker.commerce.color(); };
 
   function randomize(e: any) {
     e.preventDefault();
     setData({
       ...data,
       datasets: [{
-        label: 'Example',
+        label : "Amount",
         backgroundColor: randomColor(),
         data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        stack : ""
       }]
     });
     setPie_Data({
       ...pie_data,
       datasets: [{
-        label: '# of Votes',
         data: programming_languages.map(() => faker.datatype.number(15)),
         backgroundColor: programming_languages.map(randomColor),
         borderWidth: 1,
@@ -95,7 +103,7 @@ const GraphsScreen: FC = () => {
         <PieChart title={"Example Pie Chart"} data={pie_data} />
       </div>
       <div className="my-3 bg-gray-800 p-5 rounded-2xl min-h-[50vh]">
-        <PieChart title={"Example Pie Chart"} data={pie_data} />
+        <DoughnutChart title={"Example Doughnut Chart"} data={pie_data} />
       </div>
     </div>
 

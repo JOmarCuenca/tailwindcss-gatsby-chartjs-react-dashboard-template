@@ -4,9 +4,9 @@ import faker from 'faker';
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import {BarChart} from "../components/charts";
+import {BarChart, HorizontalBarChart} from "../components/charts";
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+const labels = ['January', 'February', 'March', 'April'];
 
 const IndexPage = () => {
 
@@ -16,7 +16,7 @@ const IndexPage = () => {
       {
         label: 'Example',
         backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        data: labels.map(() => faker.datatype.number({ min: -400, max: 400 })),
       },
     ],
   };
@@ -30,7 +30,7 @@ const IndexPage = () => {
       datasets: [{
         label: 'Example',
         backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        data: labels.map(() => faker.datatype.number({ min: -400, max: 400 })),
       }]
     });
   }
@@ -39,8 +39,13 @@ const IndexPage = () => {
     <Seo title="Home" />
     <button onClick={randomize} >Randomize</button>
     {/* <Chart options={options} type="bar" data={data} /> */}
-    <div className="bg-gray-800 p-5 rounded-2xl w-full max-w-5xl max-h-[50vh]">
+    <div className="grid grid-cols-1 gap-3">
+    <div className="bg-gray-800 p-5 rounded-2xl w-full max-w-5xl min-h-[50vh]">
       <BarChart title="ExampleChart" data={data} />
+    </div>
+    <div className="bg-gray-800 p-5 rounded-2xl w-full max-w-5xl min-h-[50vh]">
+      <HorizontalBarChart title="ExampleChart" data={data} />
+    </div>
     </div>
   </Layout>;
 
