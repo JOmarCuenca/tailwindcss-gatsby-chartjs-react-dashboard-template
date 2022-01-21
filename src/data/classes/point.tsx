@@ -3,11 +3,17 @@ class DataPoint {
     y : number;
 }
 
+class NamedDataPoint {
+    x : string;
+    y : number;
+}
+
 class RadialDataPoint extends DataPoint {
     r : number;
 }
 
 export {
     DataPoint,
-    RadialDataPoint
+    RadialDataPoint,
+    NamedDataPoint
 };
