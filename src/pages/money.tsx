@@ -1,4 +1,4 @@
-import faker from "faker";
+import faker from '@faker-js/faker'
 import React, { FC } from "react";
 import { PolarAreaChart, RadarChart } from "../components/charts";
 import Layout from "../components/layout";

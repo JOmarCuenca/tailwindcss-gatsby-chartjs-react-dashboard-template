@@ -1,4 +1,4 @@
-import faker from "faker";
+import faker from '@faker-js/faker'
 import React, { FC, useState } from "react";
 import { BarChart, DoughnutChart, LineChart, PieChart } from "../components/charts";
 import Layout from "../components/layout";

@@ -5,9 +5,7 @@
   "version": "0.1.0",
   "author": "Jesus Omar Cuenca Espino <jesomar.cuenca@gmail.com>",
   "dependencies": {
-    "@types/faker": "^5.5.9",
     "chart.js": "^3.7.0",
-    "faker": "5.5.3",
     "gatsby": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
     "gatsby-plugin-image": "^2.4.0",
@@ -26,6 +24,7 @@
     "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.3",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",
     "prettier": "^2.4.1",

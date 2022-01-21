@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import faker from 'faker';
+import faker from '@faker-js/faker'
 
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import {BarChart, HorizontalBarChart} from "../components/charts";
 
-const labels = ['January', 'February', 'March', 'April'];
+const labels = ['February', 'March', 'April', "May"];
 
 const IndexPage = () => {
 
