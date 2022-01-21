@@ -1,4 +1,4 @@
-import { BarChartData, DoughnutChartData, LineChartData, PieChartData, PolarAreaChartData, RadarChartData, ScatterChartData } from "../classes/charts";
+import { BarChartData, BubbleChartData, DoughnutChartData, LineChartData, PieChartData, PolarAreaChartData, RadarChartData, ScatterChartData } from "../classes/charts";
 
 class ChartProps {
     title?: string;
@@ -32,6 +32,10 @@ class ScatterChartProps extends ChartProps {
     data: ScatterChartData;
 }
 
+class BubbleChartProps extends ChartProps {
+    data: BubbleChartData;
+}
+
 export {
     BarChartProps,
     LineChartProps,
@@ -39,5 +43,6 @@ export {
     DoughnutChartProps,
     PolarAreaChartProps,
     RadarChartProps,
-    ScatterChartProps
+    ScatterChartProps,
+    BubbleChartProps
 };

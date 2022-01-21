@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Bar, Doughnut, Line, Pie, PolarArea, Radar, Scatter } from "react-chartjs-2";
+import { Bar, Bubble, Doughnut, Line, Pie, PolarArea, Radar, Scatter } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
@@ -15,7 +15,7 @@ import {
   Tooltip,
   Filler
 } from 'chart.js';
-import { BarChartProps, DoughnutChartProps, LineChartProps, PieChartProps, PolarAreaChartProps, RadarChartProps, ScatterChartProps } from "../data/interfaces/charts";
+import { BarChartProps, BubbleChartProps, DoughnutChartProps, LineChartProps, PieChartProps, PolarAreaChartProps, RadarChartProps, ScatterChartProps } from "../data/interfaces/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -314,6 +314,38 @@ const ScatterChart : FC<ScatterChartProps> = (p) => {
 
 }
 
+const BubbleChart : FC<BubbleChartProps> = (p) => {
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio : false,
+    plugins: {
+      legend: {
+        position: 'bottom' as const,
+        labels: {
+          color: "#FFFFFF",
+        }
+      },
+      title: {
+        display: true,
+        text: p.title,
+        color: "#FFFFFF",
+        font : {
+          size : 24
+        }
+      },
+    },
+    scales: {
+      y : {
+        beginAtZero: true
+      }
+    }
+  };
+
+  return <Bubble data={p.data} options={options} />;
+
+}
+
 
 export {
   BarChart,
@@ -323,5 +355,6 @@ export {
   DoughnutChart,
   PolarAreaChart,
   RadarChart,
-  ScatterChart
+  ScatterChart,
+  BubbleChart
 };

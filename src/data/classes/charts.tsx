@@ -1,4 +1,4 @@
-import { DataPoint } from "./point";
+import { DataPoint, RadialDataPoint } from "./point";
 
 class BaseDataset {
     backgroundColor: string | string[];
@@ -15,7 +15,11 @@ class LabeledChartDataset extends BaseDataset {
 }
 
 class PointLabeledChartDataset extends LabeledChartDataset {
-    data : DataPoint[];
+    data: DataPoint[];
+}
+
+class RadialPointLabeledChartDataset extends PointLabeledChartDataset {
+    data: RadialDataPoint[];
 }
 
 class UnlabeledBorderedChartDataset extends BorderedBaseDataset {
@@ -55,10 +59,16 @@ class PolarAreaChartData extends LabelableChartData { };
 class RadarChartData extends LabelableChartData { };
 
 class PointChartData extends BaseChartData {
-    datasets : PointLabeledChartDataset[];
+    datasets: PointLabeledChartDataset[];
 }
 
-class ScatterChartData extends PointChartData {}
+class Bubble extends BaseChartData {
+    datasets: RadialPointLabeledChartDataset[];
+}
+
+class ScatterChartData extends PointChartData { };
+
+class BubbleChartData extends Bubble { };
 
 export {
     BarChartData,
@@ -67,5 +77,6 @@ export {
     DoughnutChartData,
     PolarAreaChartData,
     RadarChartData,
-    ScatterChartData
+    ScatterChartData,
+    BubbleChartData
 };
