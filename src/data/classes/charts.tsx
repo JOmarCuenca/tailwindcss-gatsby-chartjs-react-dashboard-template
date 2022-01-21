@@ -1,22 +1,43 @@
-class UnlabeledChartDataset {
-    data: number[];
+import { DataPoint } from "./point";
+
+class BaseDataset {
     backgroundColor: string | string[];
+}
+
+class BorderedBaseDataset extends BaseDataset {
     borderWidth?: number;
     borderColor?: string;
 }
 
-class LabeledChartDataset extends UnlabeledChartDataset {
+class LabeledChartDataset extends BaseDataset {
     label: string;
     backgroundColor: string;
 }
 
-class ChartData {
-    labels: string[];
-    datasets: UnlabeledChartDataset[];
+class PointLabeledChartDataset extends LabeledChartDataset {
+    data : DataPoint[];
 }
 
-class LabeledChartData extends ChartData {
-    datasets: LabeledChartDataset[];
+class UnlabeledBorderedChartDataset extends BorderedBaseDataset {
+    data: number[];
+}
+
+class LabeledBorderedChartDataset extends UnlabeledBorderedChartDataset {
+    label: string;
+    backgroundColor: string;
+}
+
+class BaseChartData {
+    datasets: BaseDataset[];
+}
+
+class LabelableChartData extends BaseChartData {
+    labels: string[];
+    datasets: UnlabeledBorderedChartDataset[];
+}
+
+class LabeledChartData extends LabelableChartData {
+    datasets: LabeledBorderedChartDataset[];
 }
 
 class BarChartData extends LabeledChartData {
@@ -25,13 +46,19 @@ class BarChartData extends LabeledChartData {
 
 class LineChartData extends LabeledChartData { };
 
-class PieChartData extends ChartData { };
+class PieChartData extends LabelableChartData { };
 
-class DoughnutChartData extends ChartData { };
+class DoughnutChartData extends LabelableChartData { };
 
-class PolarAreaChartData extends ChartData { };
+class PolarAreaChartData extends LabelableChartData { };
 
-class RadarChartData extends ChartData { };
+class RadarChartData extends LabelableChartData { };
+
+class PointChartData extends BaseChartData {
+    datasets : PointLabeledChartDataset[];
+}
+
+class ScatterChartData extends PointChartData {}
 
 export {
     BarChartData,
@@ -39,5 +66,6 @@ export {
     PieChartData,
     DoughnutChartData,
     PolarAreaChartData,
-    RadarChartData
+    RadarChartData,
+    ScatterChartData
 };
