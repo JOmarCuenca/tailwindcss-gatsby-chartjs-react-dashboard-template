@@ -1,7 +1,8 @@
+import { ChartTypeRegistry } from "chart.js";
 import { DataPoint, RadialDataPoint } from "./point";
 
 class BaseDataset {
-    backgroundColor: string | string[];
+    backgroundColor?: string | string[];
 }
 
 class BorderedBaseDataset extends BaseDataset {
@@ -28,7 +29,13 @@ class UnlabeledBorderedChartDataset extends BorderedBaseDataset {
 
 class LabeledBorderedChartDataset extends UnlabeledBorderedChartDataset {
     label: string;
-    backgroundColor: string;
+    backgroundColor?: string;
+}
+
+class TypedLabeledBorderedChartDataset extends LabeledBorderedChartDataset {
+    type : keyof ChartTypeRegistry;
+    fill?: boolean;
+    stack?: string;
 }
 
 class BaseChartData {
@@ -62,15 +69,18 @@ class PointChartData extends BaseChartData {
     datasets: PointLabeledChartDataset[];
 }
 
-class Bubble extends BaseChartData {
+class BubbleChartData extends BaseChartData {
     datasets: RadialPointLabeledChartDataset[];
 }
 
 class ScatterChartData extends PointChartData { };
 
-class BubbleChartData extends Bubble { };
+class MultitypeChartData extends LabelableChartData {
+    datasets: TypedLabeledBorderedChartDataset[];
+};
 
 export {
+    BaseChartData,
     BarChartData,
     LineChartData,
     PieChartData,
@@ -78,5 +88,6 @@ export {
     PolarAreaChartData,
     RadarChartData,
     ScatterChartData,
-    BubbleChartData
+    BubbleChartData,
+    MultitypeChartData
 };

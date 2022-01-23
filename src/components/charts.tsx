@@ -43,34 +43,26 @@ const BarChart: FC<BarChartProps> = (p) => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        ticks: {
-          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-          // callback: function(val, index) {
-          //   // Hide the label of every 2nd dataset
-          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-          // },
-          color: 'white',
-        }
+        ticks: p.xTicks
       },
       y: {
-        ticks: {
-          color: 'white',
-        }
+        ticks: p.yTicks
       }
     },
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -93,34 +85,26 @@ const HorizontalBarChart: FC<BarChartProps> = (p) => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        ticks: {
-          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-          // callback: function(val, index) {
-          //   // Hide the label of every 2nd dataset
-          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-          // },
-          color: 'white',
-        }
+        ticks: p.xTicks
       },
       y: {
-        ticks: {
-          color: 'white',
-        }
+        ticks: p.yTicks
       }
     },
     plugins: {
       legend: {
-        position: 'right' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -137,34 +121,26 @@ const LineChart: FC<LineChartProps> = (p) => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        ticks: {
-          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-          // callback: function(val, index) {
-          //   // Hide the label of every 2nd dataset
-          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-          // },
-          color: 'white',
-        }
+        ticks: p.xTicks
       },
       y: {
-        ticks: {
-          color: 'white',
-        }
+        ticks: p.yTicks
       }
     },
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -181,17 +157,18 @@ const PieChart: FC<PieChartProps> = (p) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -208,17 +185,18 @@ const DoughnutChart: FC<DoughnutChartProps> = (p) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'top' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -235,17 +213,18 @@ const PolarAreaChart: FC<PolarAreaChartProps> = (p) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -262,17 +241,18 @@ const RadarChart: FC<RadarChartProps> = (p) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -289,17 +269,18 @@ const ScatterChart: FC<ScatterChartProps> = (p) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -321,17 +302,18 @@ const BubbleChart: FC<BubbleChartProps> = (p) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: 'bottom' as const,
+        position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
+        position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },
@@ -353,35 +335,26 @@ const MultitypeChart: FC<MultitypeChartProps> = (p) => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        ticks: {
-          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-          // callback: function(val, index) {
-          //   // Hide the label of every 2nd dataset
-          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-          // },
-          color: 'white',
-        }
+        ticks: p.xTicks
       },
       y: {
-        ticks: {
-          color: 'white',
-        }
+        ticks: p.yTicks
       }
     },
     plugins: {
       legend: {
         position: p.legendPosition,
         labels: {
-          color: "#FFFFFF",
+          color: p.legendLabelsColor ?? p.titleColor,
         }
       },
       title: {
         position: p.titlePosition,
         display: p.title !== undefined,
         text: p.title,
-        color: "#FFFFFF",
+        color: p.titleColor,
         font: {
-          size: 24
+          size: p.titleSize ?? 24
         }
       },
     },

@@ -1,12 +1,27 @@
 import { ChartTypeRegistry } from "chart.js";
-import { BarChartData, BubbleChartData, DoughnutChartData, LineChartData, PieChartData, PolarAreaChartData, RadarChartData, ScatterChartData } from "../classes/charts";
+import { BarChartData, BaseChartData, BubbleChartData, DoughnutChartData, LineChartData, MultitypeChartData, PieChartData, PolarAreaChartData, RadarChartData, ScatterChartData } from "../classes/charts";
 
 import LegendPosition from "../enums/LegendPosition";
+import Ticks from "./ticks";
 
 class ChartProps {
+    
+    // Title 
     title?: string;
-    legendPosition? : LegendPosition;
-    titlePosition?  : LegendPosition;
+    titlePosition?: LegendPosition;
+    titleColor?: string;
+    titleSize?: number;
+
+    // Legend
+    legendPosition?: LegendPosition;
+    legendLabelsColor? : string;
+
+    // Ticks
+    xTicks? : Ticks;
+    yTicks? : Ticks;
+
+    // Main Data
+    data: BaseChartData;
 }
 
 class BarChartProps extends ChartProps {
@@ -43,7 +58,7 @@ class BubbleChartProps extends ChartProps {
 
 class MultitypeChartProps extends ChartProps {
     type: keyof ChartTypeRegistry;
-    data: any;
+    data: MultitypeChartData;
 }
 
 export {
