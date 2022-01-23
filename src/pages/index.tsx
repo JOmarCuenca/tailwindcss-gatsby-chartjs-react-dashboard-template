@@ -1,51 +1,54 @@
-import React, { useState } from "react";
-import faker from '@faker-js/faker'
-
-
+import React from "react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import {BarChart, HorizontalBarChart} from "../components/charts";
 
-const labels = ['February', 'March', 'April', "May"];
+import faker from '@faker-js/faker';
+import { MultitypeChart } from "../components/charts";
+import LegendPosition from "../data/enums/LegendPosition";
+
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 const IndexPage = () => {
 
-  const BASE_DATA = {
+  const DATA = {
     labels,
     datasets: [
       {
-        label: 'Example',
+        type: 'line' as const,
+        label: 'Dataset 1',
+        borderColor: 'rgb(255, 99, 132)',
+        borderWidth: 2,
+        fill: false,
+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      },
+      {
+        type: 'bar' as const,
+        label: 'Dataset 2',
+        backgroundColor: 'rgb(75, 192, 192)',
+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        borderColor: 'white',
+        borderWidth: 2,
+      },
+      {
+        type: 'bar' as const,
+        label: 'Dataset 3',
         backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map(() => faker.datatype.number({ min: -400, max: 400 })),
+        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
       },
     ],
   };
 
-  const [data, setData] = useState(BASE_DATA);
-
-  function randomize(e: any) {
-    e.preventDefault();
-    setData({
-      ...data,
-      datasets: [{
-        label: 'Example',
-        backgroundColor: 'rgb(53, 162, 235)',
-        data: labels.map(() => faker.datatype.number({ min: -400, max: 400 })),
-      }]
-    });
-  }
-
   return <Layout>
-    <Seo title="Home" />
-    <button onClick={randomize} >Randomize</button>
-    {/* <Chart options={options} type="bar" data={data} /> */}
-    <div className="grid grid-cols-1 gap-3">
-    <div className="bg-gray-800 p-5 rounded-2xl w-full max-w-5xl min-h-[50vh]">
-      <BarChart title="ExampleChart" data={data} />
-    </div>
-    <div className="bg-gray-800 p-5 rounded-2xl w-full max-w-5xl min-h-[50vh]">
-      <HorizontalBarChart title="ExampleChart" data={data} />
-    </div>
+    <Seo title="Settings" />
+    <h1 className="text-3xl">Hi people!</h1>
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <p>I made this little repo as a template with pre-installed tailwindcss with typescript support.</p>
+    <p>Also with direct support and some guide and decorators for the chartjs React library.</p>
+    <p>Such as this one down there.</p>
+
+    <div className="bg-gray-800 rounded-2xl mt-4 p-7 h-[60vh] ">
+      <MultitypeChart type="bar" data={DATA} title="Example of Multitype chart" titlePosition={LegendPosition.left} legendPosition={LegendPosition.bottom} />
     </div>
   </Layout>;
 

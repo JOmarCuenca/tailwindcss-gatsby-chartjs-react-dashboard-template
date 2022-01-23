@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Bar, Bubble, Doughnut, Line, Pie, PolarArea, Radar, Scatter } from "react-chartjs-2";
+import { Bar, Bubble, Chart, Doughnut, Line, Pie, PolarArea, Radar, Scatter } from "react-chartjs-2";
 
 import {
   Chart as ChartJS,
@@ -15,7 +15,7 @@ import {
   Tooltip,
   Filler
 } from 'chart.js';
-import { BarChartProps, BubbleChartProps, DoughnutChartProps, LineChartProps, PieChartProps, PolarAreaChartProps, RadarChartProps, ScatterChartProps } from "../data/interfaces/charts";
+import { BarChartProps, BubbleChartProps, DoughnutChartProps, LineChartProps, MultitypeChartProps, PieChartProps, PolarAreaChartProps, RadarChartProps, ScatterChartProps } from "../data/interfaces/charts";
 
 ChartJS.register(
   CategoryScale,
@@ -36,149 +36,28 @@ ChartJS.register(
   https://react-chartjs-2.netlify.app/examples 
 */
 
-const BarChart : FC<BarChartProps> = (p) => {
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio : false,
-        scales: {
-          x: {
-            ticks: {
-              // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-              // callback: function(val, index) {
-              //   // Hide the label of every 2nd dataset
-              //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-              // },
-              color: 'white',
-            }
-          },
-          y: {
-            ticks: {
-              color: 'white',
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'top' as const,
-            labels: {
-              color: "#FFFFFF",
-            }
-          },
-          title: {
-            display: true,
-            text: p.title,
-            color: "#FFFFFF",
-            font : {
-              size : 24
-            }
-          },
-        },
-      };
-
-    return <Bar data={p.data} options={options}  />;
-
-}
-
-const HorizontalBarChart : FC<BarChartProps> = (p) => {
-
-  const options = {
-      responsive: true,
-      indexAxis: 'y' as const,
-      elements: {
-        bar: {
-          borderWidth: 2
-        }
-      },
-      maintainAspectRatio : false,
-      scales: {
-        x: {
-          ticks: {
-            // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-            // callback: function(val, index) {
-            //   // Hide the label of every 2nd dataset
-            //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-            // },
-            color: 'white',
-          }
-        },
-        y: {
-          ticks: {
-            color: 'white',
-          }
-        }
-      },
-      plugins: {
-        legend: {
-          position: 'right' as const,
-          labels: {
-            color: "#FFFFFF",
-          }
-        },
-        title: {
-          display: true,
-          text: p.title,
-          color: "#FFFFFF",
-          font : {
-            size : 24
-          }
-        },
-      },
-    };
-
-  return <Bar data={p.data} options={options}  />;
-
-}
-
-const LineChart : FC<LineChartProps> = (p) => {
-
-  const options = {
-      responsive: true,
-      maintainAspectRatio : false,
-      scales: {
-        x: {
-          ticks: {
-            // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-            // callback: function(val, index) {
-            //   // Hide the label of every 2nd dataset
-            //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
-            // },
-            color: 'white',
-          }
-        },
-        y: {
-          ticks: {
-            color: 'white',
-          }
-        }
-      },
-      plugins: {
-        legend: {
-          position: 'top' as const,
-          labels: {
-            color: "#FFFFFF",
-          }
-        },
-        title: {
-          display: true,
-          text: p.title,
-          color: "#FFFFFF",
-          font : {
-            size : 24
-          }
-        },
-      },
-    };
-
-  return <Line data={p.data} options={options}  />;
-
-}
-
-const PieChart : FC<PieChartProps> = (p) => {
+const BarChart: FC<BarChartProps> = (p) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          // callback: function(val, index) {
+          //   // Hide the label of every 2nd dataset
+          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+          // },
+          color: 'white',
+        }
+      },
+      y: {
+        ticks: {
+          color: 'white',
+        }
+      }
+    },
     plugins: {
       legend: {
         position: 'top' as const,
@@ -187,11 +66,132 @@ const PieChart : FC<PieChartProps> = (p) => {
         }
       },
       title: {
-        display: true,
+        display: p.title !== undefined,
         text: p.title,
         color: "#FFFFFF",
-        font : {
-          size : 24
+        font: {
+          size: 24
+        }
+      },
+    },
+  };
+
+  return <Bar data={p.data} options={options} />;
+
+}
+
+const HorizontalBarChart: FC<BarChartProps> = (p) => {
+
+  const options = {
+    responsive: true,
+    indexAxis: 'y' as const,
+    elements: {
+      bar: {
+        borderWidth: 2
+      }
+    },
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          // callback: function(val, index) {
+          //   // Hide the label of every 2nd dataset
+          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+          // },
+          color: 'white',
+        }
+      },
+      y: {
+        ticks: {
+          color: 'white',
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'right' as const,
+        labels: {
+          color: "#FFFFFF",
+        }
+      },
+      title: {
+        display: p.title !== undefined,
+        text: p.title,
+        color: "#FFFFFF",
+        font: {
+          size: 24
+        }
+      },
+    },
+  };
+
+  return <Bar data={p.data} options={options} />;
+
+}
+
+const LineChart: FC<LineChartProps> = (p) => {
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          // callback: function(val, index) {
+          //   // Hide the label of every 2nd dataset
+          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+          // },
+          color: 'white',
+        }
+      },
+      y: {
+        ticks: {
+          color: 'white',
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'top' as const,
+        labels: {
+          color: "#FFFFFF",
+        }
+      },
+      title: {
+        display: p.title !== undefined,
+        text: p.title,
+        color: "#FFFFFF",
+        font: {
+          size: 24
+        }
+      },
+    },
+  };
+
+  return <Line data={p.data} options={options} />;
+
+}
+
+const PieChart: FC<PieChartProps> = (p) => {
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top' as const,
+        labels: {
+          color: "#FFFFFF",
+        }
+      },
+      title: {
+        display: p.title !== undefined,
+        text: p.title,
+        color: "#FFFFFF",
+        font: {
+          size: 24
         }
       },
     },
@@ -201,11 +201,11 @@ const PieChart : FC<PieChartProps> = (p) => {
 
 }
 
-const DoughnutChart : FC<DoughnutChartProps> = (p) => {
+const DoughnutChart: FC<DoughnutChartProps> = (p) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'top' as const,
@@ -214,11 +214,11 @@ const DoughnutChart : FC<DoughnutChartProps> = (p) => {
         }
       },
       title: {
-        display: true,
+        display: p.title !== undefined,
         text: p.title,
         color: "#FFFFFF",
-        font : {
-          size : 24
+        font: {
+          size: 24
         }
       },
     },
@@ -228,11 +228,11 @@ const DoughnutChart : FC<DoughnutChartProps> = (p) => {
 
 }
 
-const PolarAreaChart : FC<PolarAreaChartProps> = (p) => {
+const PolarAreaChart: FC<PolarAreaChartProps> = (p) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'bottom' as const,
@@ -241,11 +241,11 @@ const PolarAreaChart : FC<PolarAreaChartProps> = (p) => {
         }
       },
       title: {
-        display: true,
+        display: p.title !== undefined,
         text: p.title,
         color: "#FFFFFF",
-        font : {
-          size : 24
+        font: {
+          size: 24
         }
       },
     },
@@ -255,11 +255,11 @@ const PolarAreaChart : FC<PolarAreaChartProps> = (p) => {
 
 }
 
-const RadarChart : FC<RadarChartProps> = (p) => {
+const RadarChart: FC<RadarChartProps> = (p) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'bottom' as const,
@@ -268,11 +268,11 @@ const RadarChart : FC<RadarChartProps> = (p) => {
         }
       },
       title: {
-        display: true,
+        display: p.title !== undefined,
         text: p.title,
         color: "#FFFFFF",
-        font : {
-          size : 24
+        font: {
+          size: 24
         }
       },
     },
@@ -282,11 +282,11 @@ const RadarChart : FC<RadarChartProps> = (p) => {
 
 }
 
-const ScatterChart : FC<ScatterChartProps> = (p) => {
+const ScatterChart: FC<ScatterChartProps> = (p) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'bottom' as const,
@@ -295,16 +295,16 @@ const ScatterChart : FC<ScatterChartProps> = (p) => {
         }
       },
       title: {
-        display: true,
+        display: p.title !== undefined,
         text: p.title,
         color: "#FFFFFF",
-        font : {
-          size : 24
+        font: {
+          size: 24
         }
       },
     },
     scales: {
-      y : {
+      y: {
         beginAtZero: true
       }
     }
@@ -314,11 +314,11 @@ const ScatterChart : FC<ScatterChartProps> = (p) => {
 
 }
 
-const BubbleChart : FC<BubbleChartProps> = (p) => {
+const BubbleChart: FC<BubbleChartProps> = (p) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio : false,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: 'bottom' as const,
@@ -327,16 +327,16 @@ const BubbleChart : FC<BubbleChartProps> = (p) => {
         }
       },
       title: {
-        display: true,
+        display: p.title !== undefined,
         text: p.title,
         color: "#FFFFFF",
-        font : {
-          size : 24
+        font: {
+          size: 24
         }
       },
     },
     scales: {
-      y : {
+      y: {
         beginAtZero: true
       }
     }
@@ -346,6 +346,49 @@ const BubbleChart : FC<BubbleChartProps> = (p) => {
 
 }
 
+const MultitypeChart: FC<MultitypeChartProps> = (p) => {
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          // // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+          // callback: function(val, index) {
+          //   // Hide the label of every 2nd dataset
+          //   return index % 2 === 0 ? this.getLabelForValue(val) : '';
+          // },
+          color: 'white',
+        }
+      },
+      y: {
+        ticks: {
+          color: 'white',
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: p.legendPosition,
+        labels: {
+          color: "#FFFFFF",
+        }
+      },
+      title: {
+        position: p.titlePosition,
+        display: p.title !== undefined,
+        text: p.title,
+        color: "#FFFFFF",
+        font: {
+          size: 24
+        }
+      },
+    },
+  };
+
+  return <Chart type={p.type} data={p.data} options={options} />
+}
 
 export {
   BarChart,
@@ -356,5 +399,6 @@ export {
   PolarAreaChart,
   RadarChart,
   ScatterChart,
-  BubbleChart
+  BubbleChart,
+  MultitypeChart
 };
