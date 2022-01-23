@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Financial Money Planner`,
-    description: `Manage your finances using this panel`,
+    title: `Dashboard Gatsby Template`,
+    description: `Use this GatsbyJS TailwindCSS ChartJS ReactJS Template for your desired projects`,
     author: `JOmarCuenca jesomar.cuenca@gmail.com`,
     siteUrl: `https://github.com/JOmarCuenca`
   },
@@ -21,15 +21,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `money-saver`,
-        short_name: `saver`,
+        name: `Dashboard-template`,
+        short_name: `template`,
         start_url: `/`,
         // background_color: `#663399`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/wolf-icon.png`, // This path is relative to the root of the site.
+        icon: "src/assets/images/wolf-icon.png", // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

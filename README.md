@@ -1,105 +1,108 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+<div align="center">
+  <!-- Just so you know that Icon isn't mine -->
+  <img alt="default Icon" src="src/assets/images/wolf-icon.png" height="200" />
+  <h1>
+    GatsbyJS TailwindCSS ChartJS ReactJS Template
+  </h1>
+</div>
+
+<h3>Table of Contents</h3>
+
+- [Description](#description)
+- [Quick Start](#quick-start)
+- [Credit](#credit)
+- [Inspiration](#inspiration)
+
+# Description
+
+This project was created as a template to create dashboard like websites using static website rendering of GatsbyJS, the beauty of ChartJS and Tailwind CSS with a powerful framework such as ReactJS to make it useful.
+
+This is still a barebones implementation, as there is no API. All of the current Charts were created using [Faker.js](https://github.com/faker-js/faker).
+
+However the site seems to be dynamic enough to pull data from an API, such as Firebase, Mongo, SQL, etc.
+
+# Quick Start
+
+If you want to use this template, of course you are free to do so.
+
+You can start your project either by ```git clone``` this project and making the modifications manually. (not really recommended, as the git logs will be cloned as well.)
+
+To really have a fresh start, I recommend to do so using the following commands.
+
+```bash
+  $ yarn gatsby new <target directory> https://github.com/JOmarCuenca/tailwindcss-gatsby-chartjs-react-dashboard-template
+  # or
+  $ npx gatsby new <target directory> https://github.com/JOmarCuenca/tailwindcss-gatsby-chartjs-react-dashboard-template
+```
+
+# Credit
+
+<div>
+  <a href="https://es.reactjs.org">
+    <img align="left" alt="ReactJS" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
+    <h2>ReactJS</h2>
   </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+</div>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+  Used as the main framework for building the components to be rendered.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+<div>
+  <a href="https://tailwindcss.com">
+    <img align="left" alt="TailwindCSS" width="40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1024px-Tailwind_CSS_Logo.svg.png" />
+    <h2>TailwindCSS</h2>
+  </a>
+</div>
 
-## 🚀 Quick start
+  Used as a substitute for vanilla css, which makes it more manageable during development and smaller for deployment.
 
-1.  **Create a Gatsby site.**
+<div>
+  <a href="https://www.gatsbyjs.com">
+    <img align="left" alt="GatsbyJS" width="40px" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" />
+    <h2>GatsbyJS</h2>
+  </a>
+</div>
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+  Static Website Generator for smaller packages for production and faster website rendering.
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+<div>
+  <a href="https://www.chartjs.org">
+    <img align="left" alt="ChartJS" width="40px" src="https://www.chartjs.org/img/chartjs-logo.svg" />
+    <h2>ChartJS</h2>
+  </a>
+</div>
 
-1.  **Start developing.**
+  Just an amazing framework for creating beautiful charts for web.
 
-    Navigate into your new site’s directory and start it up.
+<div>
+  <a href="https://www.typescriptlang.org">
+    <img align="left" alt="Typescript" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />
+    <h2>Typescript</h2>
+  </a>
+</div>
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+  Main programming language, as tis my opinion, Typescript is bastly superior to vanilla Javascript.
 
-1.  **Open the source code and start editing!**
+<div>
+  <a href="https://github.com/faker-js/faker">
+    <img align="left" alt="Faker" width="40px" src="https://github.com/faker-js/faker/raw/main/docs/public/logo.svg" />
+    <h2>Faker</h2>
+  </a>
+</div>
 
-    Your site is now running at `http://localhost:8000`!
+  Awesome package capable of generating fake (but Realistic) data. 
+  
+  Obviously during deployment this will become non-essential.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+<!-- <br/>
+<br/> -->
+<br/>
 
-## 🚀 Quick start (Gatsby Cloud)
+# Inspiration
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+As any good programmer I want to do as little work as possible. 
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-default)
+I leave this public for the whole community to see, in case someone finds it useful or needs some point of reference for other similar project.
 
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+Feel free to open issues if you want, I intend to mantain this repo.
