@@ -36,7 +36,7 @@ const SettingsScreen: FC = () => {
     }
 
     return <Layout>
-        <Seo title="Home" />
+        <Seo title="Settings" />
         <button onClick={randomize} >Randomize</button>
         {/* <Chart options={options} type="bar" data={data} /> */}
         <div className="grid grid-cols-1 gap-3">

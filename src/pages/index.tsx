@@ -40,7 +40,7 @@ const IndexPage = () => {
   };
 
   return <Layout>
-    <Seo title="Settings" />
+    <Seo title="Home" />
     <h1 className="text-3xl">Hi people!</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
